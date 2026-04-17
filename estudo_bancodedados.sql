@@ -21,5 +21,12 @@ CREATE TABLE IF NOT EXISTS livros(
   autor_id INTEGER REFERENCES autores(id) ON DELETE RESTRICT
 );
 
+-- Alterando uma tabela, adicionando e excluindo uma coluna com o ADD e o DROP
 ALTER TABLE livros ADD COLUMN paginas INTEGER;
-ALTER TABLE li
+ALTER TABLE livros DROP COLUMN paginas;
+
+-- Alterando o tipo de coluna com o ALTER COLUMN [chave] TYPE [tipo desejado]
+ALTER TABLE livros ALTER COLUMN titulo TYPE VARCHAR(200);
+
+--Adicionando uma regra com CONSTRAINT [chave] CHECK (condição)
+ALTER TABLE livros ADD CONSTRAINT chk_preco CHECK (preco > 0);

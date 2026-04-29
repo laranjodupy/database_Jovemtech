@@ -32,3 +32,15 @@ from
   track t
   inner join album al on t.album_id = al.album_id
   inner join artist ar on al.artist_id = ar.artist_id
+
+-- contando tracks por artista usando o count e agrupando por artista.
+select
+ ar.artist_id as id,
+ ar.name as nome_do_artista,
+ count(t.track_id) -- precisa especificar de onde está tirando de track, pois tem mais de uma tabela, e como estão correlacionadas, você precisa especificar a tabela quie você quer contar.
+from
+  track t
+  inner join album al on t.album_id = al.album_id
+  inner join artist ar on al.artist_id = ar.artist_id
+
+group by id, nome_do_artista

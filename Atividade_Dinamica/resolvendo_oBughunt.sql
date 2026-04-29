@@ -1,5 +1,43 @@
 Respostas das querys (especifiquem qual a sua query e organize de acordo cm o que o professor pediu o para fazer): 
 
+--Query 1
+ -- Isaac
+
+select
+  track_id,
+  sum(unit_price * quantity) as receita_total
+from
+  invoice_line
+group by
+  track_id
+having
+  sum(unit_price * quantity) > 3.00
+order by
+  receita_total desc;
+  
+--Não estva mostrando o track_id no SELECT
+--Condição do HAVING estava invertida
+--O correto é maior de 3.00, mas estava menor que 3.00
+--ORDER BY errado
+--Estava ordenando por track_id
+
+--query 2
+  -- Isaac
+select
+  invoice_id,
+  count(invoice_line_id) as total_itens
+from
+  invoice_line
+group by
+  invoice_id
+having
+  count(invoice_line_id) > 5
+order by
+  total_itens desc;
+
+--Faltou o invoice_id no SELECT
+--Não tinha GROUP BY e INVOICED_ID
+
 /* =========================
    QUERY 5 - Kauan
    ========================= */

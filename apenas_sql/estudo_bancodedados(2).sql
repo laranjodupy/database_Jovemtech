@@ -43,4 +43,12 @@ from
   inner join album al on t.album_id = al.album_id
   inner join artist ar on al.artist_id = ar.artist_id
 
-group by id, nome_do_artista
+group by id, nome_do_artista;
+
+--left join denovo: localizando clientes que nunca compraram nada, usando o left join (que retorna se algum valor é nulo, dai basta filtrar para retornar somente eles)
+
+SELECT c.first_name, c.last_name
+FROM customer c
+LEFT JOIN invoice i
+    ON c.customer_id
+WHERE i.invoice_id IS NULL; -- OBS: não vai aparecer nada porque, logicamente falando, não tem como existir clientes que não compraram nada ne po? Mas se quiser ver os clientes, roda as linhas acima do where. 

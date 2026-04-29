@@ -139,7 +139,7 @@ order by
  --4: A query correta está logo acima desse comentário sobre os erros.
 
 -- Query incorreta abaixo
-/*```'''
+/*```sql
 select
   count(track_id) as total_faixas,
   round(avg(bytes), 0) as media_bytes
